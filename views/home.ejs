@@ -1,0 +1,12 @@
+<%- include('partials/header'); -%>
+<h1>Home</h1>
+<p><%= showHomeStartingContent %></p>
+
+<% showPosts.forEach(function(post) { %>
+  <% let shortenContent = post.content.substring(0, 100); %>
+  <% let spacedTitle = post.title.replace(/\s/g, '%20'); %>
+
+  <h1><%= post.title %></h1>
+  <p><%= shortenContent + " ..." %> <a href=<%= "/posts/" + spacedTitle %>>Read More</a></p>
+<% }); %>
+<%- include('partials/footer'); -%>
